@@ -1,6 +1,7 @@
 import unittest
 
 from statistics import Statistics
+from enums import SortBy
 from player import Player
 
 test_players = [
@@ -54,6 +55,18 @@ class TestStatistics(unittest.TestCase):
 
     def test_top_player_is_found(self):
         top = self.statistics.top(0)
+        self.assertIsInstance(top, list)
+        self.assertEqual(len(top), 1)
+        self.assertEqual(top[0].name, "Gretzky")
+
+    def test_top_player_is_found_by_goals(self):
+        top = self.statistics.top(0, SortBy.GOALS)
+        self.assertIsInstance(top, list)
+        self.assertEqual(len(top), 1)
+        self.assertEqual(top[0].name, "Lemieux")
+
+    def test_top_player_is_found_by_assists(self):
+        top = self.statistics.top(0, SortBy.ASSISTS)
         self.assertIsInstance(top, list)
         self.assertEqual(len(top), 1)
         self.assertEqual(top[0].name, "Gretzky")
