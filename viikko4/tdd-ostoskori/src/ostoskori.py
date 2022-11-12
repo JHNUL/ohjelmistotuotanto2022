@@ -32,4 +32,4 @@ class Ostoskori:
         # tyhjentää ostoskorin
 
     def ostokset(self):
-        return [self._ostokset["Maito"]]
+        return list(self._ostokset.values())
