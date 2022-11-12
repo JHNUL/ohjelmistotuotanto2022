@@ -12,8 +12,10 @@ class Ostoskori:
         return c
 
     def hinta(self):
-        return 0
-        # kertoo korissa olevien ostosten yhteenlasketun hinnan
+        p = 0
+        for kilke in self._ostokset.values():
+            p += kilke.hinta()
+        return p
 
     def lisaa_tuote(self, lisattava: Tuote):
         if lisattava.nimi in self._ostokset:
