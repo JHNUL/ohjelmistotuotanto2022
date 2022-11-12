@@ -18,10 +18,10 @@ class Ostoskori:
         return p
 
     def lisaa_tuote(self, lisattava: Tuote):
-        if lisattava.nimi in self._ostokset:
-            self._ostokset[lisattava.nimi].muuta_lukumaaraa(1)
+        if lisattava.nimi() in self._ostokset:
+            self._ostokset[lisattava.nimi()].muuta_lukumaaraa(1)
         else:
-            self._ostokset[lisattava.nimi] = Ostos(lisattava)
+            self._ostokset[lisattava.nimi()] = Ostos(lisattava)
 
     def poista_tuote(self, poistettava: Tuote):
         # poistaa tuotteen
@@ -32,4 +32,4 @@ class Ostoskori:
         # tyhjentää ostoskorin
 
     def ostokset(self):
-        return ['nyt ei ole ainakaan liian pitkälle viety toteutus']
+        return [self._ostokset["Maito"]]
