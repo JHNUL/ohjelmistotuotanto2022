@@ -1,13 +1,6 @@
-from enum import Enum
-from operaatiot import Summa, Erotus, Nollaus, Kumoa
+from enums import Komento
+from operaatiot import Summa, Erotus, Nollaus
 from tkinter import ttk, constants, StringVar
-
-
-class Komento(Enum):
-    SUMMA = 1
-    EROTUS = 2
-    NOLLAUS = 3
-    KUMOA = 4
 
 
 class Kayttoliittyma:
@@ -17,8 +10,7 @@ class Kayttoliittyma:
         self._komennot = {
             Komento.SUMMA: Summa(sovellus, self._lue_syote),
             Komento.EROTUS: Erotus(sovellus, self._lue_syote),
-            Komento.NOLLAUS: Nollaus(sovellus, self._lue_syote),
-            Komento.KUMOA: Kumoa(sovellus, self._lue_syote)
+            Komento.NOLLAUS: Nollaus(sovellus, self._lue_syote)
         }
 
     def kaynnista(self):
@@ -71,8 +63,12 @@ class Kayttoliittyma:
 
     def _suorita_komento(self, komento):
 
-        operaatio = self._komennot[komento]
-        operaatio.suorita()
+        if komento == Komento.KUMOA:
+            edellinen = self._sovellus.hae_edellinen_komento()
+            if edellinen is not None:
+                self._komennot[edellinen].kumoa()
+        else:
+            self._komennot[komento].suorita()
 
         self._kumoa_painike["state"] = constants.NORMAL
 
