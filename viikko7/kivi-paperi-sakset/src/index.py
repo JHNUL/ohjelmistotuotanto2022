@@ -1,6 +1,7 @@
 from kps_pelaaja_vs_pelaaja import KPSPelaajaVsPelaaja
 from kps_tekoaly import KPSTekoaly
 from kps_parempi_tekoaly import KPSParempiTekoaly
+from tuomari import Tuomari
 
 
 def main():
@@ -20,21 +21,21 @@ def main():
             )
 
             kaksinpeli = KPSPelaajaVsPelaaja()
-            kaksinpeli.pelaa()
+            kaksinpeli.pelaa(Tuomari())
         elif vastaus.endswith("b"):
             print(
                 "Peli loppuu kun pelaaja antaa virheellisen siirron eli jonkun muun kuin k, p tai s"
             )
 
             yksinpeli = KPSTekoaly()
-            yksinpeli.pelaa()
+            yksinpeli.pelaa(Tuomari())
         elif vastaus.endswith("c"):
             print(
                 "Peli loppuu kun pelaaja antaa virheellisen siirron eli jonkun muun kuin k, p tai s"
             )
 
             haastava_yksinpeli = KPSParempiTekoaly()
-            haastava_yksinpeli.pelaa()
+            haastava_yksinpeli.pelaa(Tuomari())
         else:
             break
 
