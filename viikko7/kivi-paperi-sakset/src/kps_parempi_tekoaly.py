@@ -1,6 +1,7 @@
 from kps import KiviPaperiSakset
 from tekstit import tietokoneen_siirto
 
+
 class KPSParempiTekoaly(KiviPaperiSakset):
     def __init__(self, tuomari, tekoalyparannettu, io):
         super().__init__(tuomari, io)
