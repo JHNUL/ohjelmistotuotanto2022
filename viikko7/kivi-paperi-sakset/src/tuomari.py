@@ -1,6 +1,12 @@
+from tekstit import tilanne
 
-# Luokka pitää kirjaa ensimmäisen ja toisen pelaajan pisteistä sekä tasapelien määrästä.
+
 class Tuomari:
+    """
+    Pitää kirjaa ensimmäisen ja toisen pelaajan
+    pisteistä sekä tasapelien määrästä.
+    """
+
     def __init__(self):
         self.ekan_pisteet = 0
         self.tokan_pisteet = 0
@@ -13,4 +19,4 @@ class Tuomari:
         self.tasapelit += int(tokan_siirto == ekan_siirto)
 
     def __str__(self):
-        return f"Pelitilanne: {self.ekan_pisteet} - {self.tokan_pisteet}\nTasapelit: {self.tasapelit}"
+        return tilanne.format(self.ekan_pisteet, self.tokan_pisteet, self.tasapelit)

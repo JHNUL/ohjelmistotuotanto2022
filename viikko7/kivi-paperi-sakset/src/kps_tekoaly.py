@@ -1,4 +1,5 @@
 from kps import KiviPaperiSakset
+from tekstit import tietokoneen_siirto
 
 
 class KPSTekoaly(KiviPaperiSakset):
@@ -9,5 +10,5 @@ class KPSTekoaly(KiviPaperiSakset):
 
     def _tokan_siirto(self, ekan_siirto=None):
         siirto = self.tekoaly.anna_siirto()
-        print(f"Tietokone valitsi: {siirto}")
+        print(tietokoneen_siirto.format(siirto))
         return siirto

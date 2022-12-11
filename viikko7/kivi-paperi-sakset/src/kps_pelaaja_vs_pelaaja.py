@@ -1,4 +1,5 @@
 from kps import KiviPaperiSakset
+from tekstit import toka_siirto_input
 
 
 class KPSPelaajaVsPelaaja(KiviPaperiSakset):
@@ -7,4 +8,4 @@ class KPSPelaajaVsPelaaja(KiviPaperiSakset):
         super().__init__(tuomari)
 
     def _tokan_siirto(self, ekan_siirto=None):
-        return input("Toisen pelaajan siirto: ")
+        return input(toka_siirto_input)

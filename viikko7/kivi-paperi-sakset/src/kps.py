@@ -1,3 +1,5 @@
+from tekstit import eka_siirto_input
+
 class KiviPaperiSakset:
 
     def __init__(self, tuomari):
@@ -22,7 +24,7 @@ class KiviPaperiSakset:
         return siirto in ["k", "p", "s"]
 
     def _ekan_siirto(self):
-        return input("Ensimmäisen pelaajan siirto: ")
+        return input(eka_siirto_input)
 
     def _tokan_siirto(self, ekan_siirto):
         return "k"
