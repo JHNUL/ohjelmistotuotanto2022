@@ -1,12 +1,14 @@
 from kps_factory import KPSFactory, Pelityyppi
+from konsoli import Konsoli
 from tekstit import aloitus_valikko, peliohje
 
 
 def main():
+    io = Konsoli()
     while True:
-        print(aloitus_valikko)
-        vastaus = input()
-        print(peliohje)
+        io.kirjoita(aloitus_valikko)
+        vastaus = io.lue()
+        io.kirjoita(peliohje)
 
         if vastaus.endswith("a"):
             KPSFactory.luo(Pelityyppi.KAKSINPELI).pelaa()

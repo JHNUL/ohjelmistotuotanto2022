@@ -4,6 +4,7 @@ from kps_parempi_tekoaly import KPSParempiTekoaly
 from tuomari import Tuomari
 from tekoaly import Tekoaly
 from tekoaly_parannettu import TekoalyParannettu
+from konsoli import Konsoli
 from enum import Enum
 
 
@@ -17,8 +18,8 @@ class KPSFactory:
 
     def luo(tyyppi):
         if tyyppi == Pelityyppi.KAKSINPELI:
-            return KPSPelaajaVsPelaaja(Tuomari())
+            return KPSPelaajaVsPelaaja(Tuomari(), Konsoli())
         if tyyppi == Pelityyppi.TEKOALY:
-            return KPSTekoaly(Tuomari(), Tekoaly())
+            return KPSTekoaly(Tuomari(), Tekoaly(), Konsoli())
         if tyyppi == Pelityyppi.PAREMPIALY:
-            return KPSParempiTekoaly(Tuomari(), TekoalyParannettu(10))
+            return KPSParempiTekoaly(Tuomari(), TekoalyParannettu(10), Konsoli())
