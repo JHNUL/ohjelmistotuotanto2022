@@ -1,18 +1,22 @@
 class KiviPaperiSakset:
-    def pelaa(self, tuomari):
+
+    def __init__(self, tuomari):
+        self.tuomari = tuomari
+
+    def pelaa(self):
 
         ekan_siirto = self._ekan_siirto()
         tokan_siirto = self._tokan_siirto()
 
         while self._onko_ok_siirto(ekan_siirto) and self._onko_ok_siirto(tokan_siirto):
-            tuomari.kirjaa_siirto(ekan_siirto, tokan_siirto)
-            print(tuomari)
+            self.tuomari.kirjaa_siirto(ekan_siirto, tokan_siirto)
+            print(self.tuomari)
 
             ekan_siirto = self._ekan_siirto()
             tokan_siirto = self._tokan_siirto(ekan_siirto)
 
         print("Kiitos!")
-        print(tuomari)
+        print(self.tuomari)
 
     def _onko_ok_siirto(self, siirto):
         return siirto in ["k", "p", "s"]

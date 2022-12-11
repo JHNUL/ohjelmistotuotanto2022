@@ -1,10 +1,10 @@
 from kps import KiviPaperiSakset
-from tekoaly_parannettu import TekoalyParannettu
 
 
 class KPSParempiTekoaly(KiviPaperiSakset):
-    def __init__(self):
-        self.tekoaly = TekoalyParannettu(10)
+    def __init__(self, tuomari, tekoalyparannettu):
+        super().__init__(tuomari)
+        self.tekoaly = tekoalyparannettu
 
     def _tokan_siirto(self, ekan_siirto=None):
         siirto = self.tekoaly.anna_siirto()
